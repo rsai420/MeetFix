@@ -1,0 +1,51 @@
+<html>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+        .pad {
+            padding: 10px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <head>
+        <h2>Meeting List</h2>
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="meetingsCtrl"> 
+            <table>
+                <tr ng-repeat="x in MeetingList">
+                    <td class="pad">{{ x.Title }}</td>
+                    <td class="pad"> <input type="button" value="Start" onclick="location.href='meetings.html?title=something'"/></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('meetingsCtrl', function($scope) {
+    $scope.MeetingList = [];
+    $scope.DummyData = [
+            {
+                'Title': 'MeetFix discussion meeting'
+            }, 
+            {
+                'Title': 'MeetFix Progress meeting'
+            },
+            {
+                'Title': 'MeetFix demo'
+            }, 
+            {
+                'Title': 'MeetFix Customer Feedback Session'
+            } 
+        ];
+    $scope.MeetingList = $scope.DummyData; 
+});
+</script> 
